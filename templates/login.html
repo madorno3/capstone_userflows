@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Log in!</title>
+</head>
+<body>
+    <h1>Log In!</h1>
+    <form method="POST">
+        <!-- needs a form action -->
+        {{ form.hidden_tag() }}
+      
+        {% for field in form
+        if field.widget.input_type != 'hidden' %}
+        <p>
+          {{ field.label }}
+          {{ field }}
+      
+          {% for error in field.errors %}
+          {{ error }}
+          {% endfor %}
+        </p>
+        {% endfor %}
+      
+        <button type="submit">Log In!</button>
+      
+      </form>
+</body>
+</html>
